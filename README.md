@@ -9,7 +9,7 @@ This repository provides an implementation of **LAP-based deformable 2D–2D med
 - First- and second-order smoothness regularization  
 - Optional Jacobian determinant constraints for folding suppression and area control  
 - Forward + backward registration with ICE  
-- Quantitative evaluation: SSIM, NMI, Dice, TV, Jacobian determinant, ICE  
+- Quantitative evaluation: SSIM, NMI, TV, Jacobian determinant, ICE
 
 ## Repository Structure
 ```text
