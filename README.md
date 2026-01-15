@@ -80,35 +80,22 @@ python main.py --LAP_type original
 ```
 
 ## Arguments
+```text
 --data_paths_json: dataset JSON  
 --img_size: image resolution  
---LAP_type: proposed | original 
+--LAP_type: proposed | original
 --device: cpu | cuda | auto  
 --result_path: output directory  
 --sigma: Gaussian parameterization  
 --r_list: multi-scale filter radii  
 --number_of_F_basis: truncation parameter n  
 --beta: smoothness regularization weights  
---gamma: Jacobian / area constraint weight  
-
-## Workflow
-1. Load fixed/moving images and segmentation masks  
-2. Resize and normalize  
-3. Initialize deformation via ANTs affine registration  
-4. Forward registration  
-5. Backward registration  
-6. Compute ICE  
-7. Save per-case metrics and visualizations  
-8. Aggregate statistics across cases  
-
-Note: The script currently runs only one pair (for i in [0]). Change to range(len(data_paths)) for full evaluation.
+--gamma: Jacobian / area constraint weight
+```
 
 ## Output
 Results are saved to {result_path}/{i}/ including metrics.json and visualizations.
-After completion, mean ± std of SSIM, NMI, Dice, ICE, TV_mean, TV_p95, DJ_fold%, DJ_p95, DJ_p5, and MSE[D_J-c] are printed.
-
-## Evaluation Metrics
-SSIM (structural similarity), NMI, Dice, TV (smoothness), Jacobian determinant (folding and area change), ICE.
+After completion, mean ± std of SSIM, NMI, ICE, TV_mean, TV_p95, DJ_fold%, DJ_p95, DJ_p5, and MSE[D_J-c] are printed.
 
 ## Citation
 @mastersthesis{Tsai2026TBRLAP,
@@ -125,4 +112,4 @@ Specify license (e.g., MIT).
 Local All-Pass framework, ANTs / SimpleITK toolkits, NIH Chest X-ray dataset
 
 ## Contact
-Any problem pliease contact 
+Any problem pliease contact f200154nn6@gmail.com
