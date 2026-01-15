@@ -50,8 +50,8 @@ Each dictionary specifies one registration pair.
 **Optional fields**
 - `fixed_seg`: path to the fixed image segmentation (binary mask)
 - `moving_seg`: path to the moving image segmentation (binary mask)
-- `fixed_pixel_spacing`: pixel spacing of the fixed image `[sx, sy]`
-- `moving_pixel_spacing`: pixel spacing of the moving image `[sx, sy]`
+- `fixed_pixel_spacing`: pixel spacing of the fixed image `[sx_f, sy_f]`
+- `moving_pixel_spacing`: pixel spacing of the moving image `[sx_m, sy_m]`
 
 ### Example JSON format
 
@@ -60,10 +60,10 @@ Each dictionary specifies one registration pair.
   {
     "fixed": "FIXED_IMAGE_PATH",
     "fixed_seg": "FIXED_SEG_PATH",
-    "fixed_pixel_spacing": [0.7, 0.7],
+    "fixed_pixel_spacing": [sx_f, sy_f],
     "moving": "MOVING_IMAGE_PATH",
     "moving_seg": "MOVING_SEG_PATH",
-    "moving_pixel_spacing": [0.8, 0.8]
+    "moving_pixel_spacing": [sx_m, sy_m]
   }
 ]
 ```
