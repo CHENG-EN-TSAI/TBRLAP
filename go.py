@@ -169,7 +169,7 @@ def summarize_metrics(args, rm_results=False):
 
 def main():
     
-    compute_ICE = True  # Set to False to skip ICE computation
+    backward = True  # Set to False to skip ICE computation
     
     # Parse arguments     
     parser = argparse.ArgumentParser()
@@ -242,7 +242,7 @@ def main():
                 )
         reg.run_iterations()
         
-        if compute_ICE:
+        if backward:
             
             if spacing_ratio is not None:
                 spacing_ratio = 1 / spacing_ratio
