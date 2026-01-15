@@ -12,30 +12,29 @@ This repository provides an implementation of **LAP-based deformable 2D–2D med
 - Quantitative evaluation: SSIM, NMI, TV, Jacobian determinant, ICE
 
 ## Repository Structure
-```text
+```dict
 .
 ├─ go.py
 ├─ lap_proposed.py
 ├─ lap_original.py
-├─ lap_test.py
 ├─ functions.py
 └─ test_data
 ```
 
 ## Installation
 1. Clone the repo
-   ```text
+   ```bash
    git clone https://github.com/CHENG-EN-TSAI/TBRLAP.git
    ```
    
 2. Create new conda environment
-   ```text
+   ```bash
    conda create -n lap python==3.9
    conda activate lap
    ```
    
 3. Install required packages
-   ```text
+   ```bash
    pip install numpy pillow tqdm torch scikit-image
    ```
 4. Install ANTs / ANTsPy follow https://
@@ -72,12 +71,12 @@ Each dictionary specifies one registration pair.
 
 ## RUN A Test
 Run TBR-LAP:
-```text
+```bash
 python main.py --data_paths_json test_data/test.json --LAP_type proposed --number_of_F_basis 5 --beta 5 150000
 ```
 
 Run original LAP:
-```text
+```bash
 python main.py --data_paths_json test_data/test.json --LAP_type original
 ```
 
@@ -107,8 +106,5 @@ After completion, mean ± std of SSIM, NMI, ICE, TV_mean, TV_p95, DJ_fold%, DJ_p
   year    = {2026}
 }
 
-## Acknowledgements
-Local All-Pass framework, ANTs / SimpleITK toolkits, NIH Chest X-ray dataset
-
 ## Contact
-Any problem pliease contact f200154nn6@gmail.com
+If you have any questions, please contact f200154nn6@gmail.com
