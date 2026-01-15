@@ -30,7 +30,7 @@ This repository provides an implementation of **LAP-based deformable 2D–2D med
    
 2. Create new conda environment
    ```text
-   conda create -n oxr python==3.9
+   conda create -n lap python==3.9
    conda activate lap
    ```
    
@@ -50,6 +50,7 @@ Each dictionary specifies one registration pair.
 - `moving`: path to the moving image
 
 **Optional fields**
+- `fixed_seg`: path to the fixed image segmentation (binary mask)
 - `moving_seg`: path to the moving image segmentation (binary mask)
 - `fixed_piel_spacing`: pixel spacing of the fixed image `[sx, sy]`
 - `moving_piel_spacing`: pixel spacing of the moving image `[sx, sy]`
@@ -60,10 +61,11 @@ Each dictionary specifies one registration pair.
 [
   {
     "fixed": "FIXED_IMAGE_PATH",
-    "fixed_piel_spacing": [sx, sy],
+    "fixed_seg": "FIXED_SEG_PATH",
+    "fixed_piel_spacing": [0.7, 0.7],
     "moving": "MOVING_IMAGE_PATH",
     "moving_seg": "MOVING_SEG_PATH",
-    "moving_piel_spacing": [sx, sy]
+    "moving_piel_spacing": [0.8, 0.8]
   }
 ]
 ```
@@ -71,12 +73,12 @@ Each dictionary specifies one registration pair.
 ## RUN A Test
 Run TBR-LAP:
 ```text
-python main.py --LAP_type proposed
+python main.py --data_paths_json test_data/test.json --LAP_type proposed --number_of_F_basis 5 --beta 5 150000
 ```
 
 Run original LAP:
 ```text
-python main.py --LAP_type original
+python main.py --data_paths_json test_data/test.json --LAP_type original
 ```
 
 ## Arguments
@@ -104,9 +106,6 @@ After completion, mean ± std of SSIM, NMI, ICE, TV_mean, TV_p95, DJ_fold%, DJ_p
   school  = {National Taiwan University},
   year    = {2026}
 }
-
-## License
-Specify license (e.g., MIT).
 
 ## Acknowledgements
 Local All-Pass framework, ANTs / SimpleITK toolkits, NIH Chest X-ray dataset
