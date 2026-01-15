@@ -14,17 +14,18 @@ This repository provides an implementation of **LAP-based deformable 2D–2D med
 ## Repository Structure
 ```text
 .
-├─ main.py
+├─ go.py
 ├─ lap_proposed.py
 ├─ lap_original.py
 ├─ lap_test.py
-└─ functions.py
+├─ functions.py
+└─ test_data
 ```
 
 ## Installation
 1. Clone the repo
    ```text
-   git clone https://github.com/
+   git clone https://github.com/CHENG-EN-TSAI/TBRLAP.git
    ```
    
 2. Create new conda environment
@@ -67,17 +68,21 @@ Each dictionary specifies one registration pair.
 ]
 ```
 
-## Usage
+## RUN A Test
 Run TBR-LAP:
-python main.py --data_paths_json data/NIH/NIH_regist_pair.json --LAP_type proposed --device auto --result_path LAP_results --img_size 256 256 --r_list 8 8 8 4 4 2 2 1 1 --number_of_F_basis 5 --beta 5 150000 --gamma 0
+```text
+python main.py --LAP_type proposed
+```
 
 Run original LAP:
-python main.py --data_paths_json data/NIH/NIH_regist_pair.json --LAP_type original --device auto --result_path LAP_results
+```text
+python main.py --LAP_type original
+```
 
 ## Arguments
 --data_paths_json: dataset JSON  
 --img_size: image resolution  
---LAP_type: proposed | original | test  
+--LAP_type: proposed | original 
 --device: cpu | cuda | auto  
 --result_path: output directory  
 --sigma: Gaussian parameterization  
@@ -118,3 +123,6 @@ Specify license (e.g., MIT).
 
 ## Acknowledgements
 Local All-Pass framework, ANTs / SimpleITK toolkits, NIH Chest X-ray dataset
+
+## Contact
+Any problem pliease contact 
