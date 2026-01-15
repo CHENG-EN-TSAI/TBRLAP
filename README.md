@@ -35,7 +35,7 @@ This repository provides an implementation of **LAP-based deformable 2D–2D med
    
 3. Install required packages
    ```bash
-   pip install requirements.txt
+   pip install -r requirements.txt
    ```
 
 ## Data Preparation
@@ -50,8 +50,8 @@ Each dictionary specifies one registration pair.
 **Optional fields**
 - `fixed_seg`: path to the fixed image segmentation (binary mask)
 - `moving_seg`: path to the moving image segmentation (binary mask)
-- `fixed_piel_spacing`: pixel spacing of the fixed image `[sx, sy]`
-- `moving_piel_spacing`: pixel spacing of the moving image `[sx, sy]`
+- `fixed_pixel_spacing`: pixel spacing of the fixed image `[sx, sy]`
+- `moving_pixel_spacing`: pixel spacing of the moving image `[sx, sy]`
 
 ### Example JSON format
 
@@ -60,10 +60,10 @@ Each dictionary specifies one registration pair.
   {
     "fixed": "FIXED_IMAGE_PATH",
     "fixed_seg": "FIXED_SEG_PATH",
-    "fixed_piel_spacing": [0.7, 0.7],
+    "fixed_pixel_spacing": [0.7, 0.7],
     "moving": "MOVING_IMAGE_PATH",
     "moving_seg": "MOVING_SEG_PATH",
-    "moving_piel_spacing": [0.8, 0.8]
+    "moving_pixel_spacing": [0.8, 0.8]
   }
 ]
 ```
@@ -103,7 +103,7 @@ Results are saved to {result_path}/{i}/ including metrics.json and visualization
 After completion, mean ± std of SSIM, NMI, ICE, TV_mean, TV_p95, DJ_fold%, DJ_p95, DJ_p5, and MSE[D_J-c] are printed.
 
 ## Citation
-```text
+```bibtext
 @mastersthesis{Tsai2026TBRLAP,
   title   = {A Trigonometric-Basis Regularized Local All-Pass Method with Component-wise Jacobian Constraints for X-ray Image Alignment},
   author  = {Cheng-En Tsai},
