@@ -1,5 +1,5 @@
 # TBR-LAP / TBRJ-LAP  
-**Trigonometric-Basis Regularized Local All-Pass Registration for 2D Same-modal Images**
+**Trigonometric-Basis Regularized Local All-Pass Registration for 2D Same-Modality Images**
 
 This repository provides an implementation of **LAP-based deformable 2D–2D medical image registration**, including **Original LAP**, **TBR-LAP**, and optional **TBRJ-LAP** with Jacobian/area constraints. The code targets **same-modality X-ray registration** and supports forward–backward registration with **inverse consistency error (ICE)** evaluation.
 
@@ -12,7 +12,7 @@ This repository provides an implementation of **LAP-based deformable 2D–2D med
 - Quantitative evaluation: SSIM, NMI, TV, Jacobian determinant, ICE
 
 ## Repository Structure
-```dict
+```text
 .
 ├─ go.py
 ├─ lap_proposed.py
@@ -35,9 +35,8 @@ This repository provides an implementation of **LAP-based deformable 2D–2D med
    
 3. Install required packages
    ```bash
-   pip install numpy pillow tqdm torch scikit-image
+   pip install requirements.txt
    ```
-4. Install ANTs / ANTsPy follow https://
 
 ## Data Preparation
 
@@ -69,15 +68,20 @@ Each dictionary specifies one registration pair.
 ]
 ```
 
-## RUN A Test
-Run TBR-LAP:
-```bash
-python main.py --data_paths_json test_data/test.json --LAP_type proposed --number_of_F_basis 5 --beta 5 150000
-```
-
+## RUN a Test
 Run original LAP:
 ```bash
-python main.py --data_paths_json test_data/test.json --LAP_type original
+python go.py --data_paths_json test_data/test.json --LAP_type original
+```
+
+Run TBR-LAP:
+```bash
+python go.py --data_paths_json test_data/test.json --LAP_type proposed --number_of_F_basis 5 --beta 5 150000
+```
+
+Run TBRJ-LAP:
+```bash
+python go.py --data_paths_json test_data/test.json --LAP_type proposed --number_of_F_basis 5 --beta 5 150000 --gamma 800
 ```
 
 ## Arguments
@@ -99,12 +103,17 @@ Results are saved to {result_path}/{i}/ including metrics.json and visualization
 After completion, mean ± std of SSIM, NMI, ICE, TV_mean, TV_p95, DJ_fold%, DJ_p95, DJ_p5, and MSE[D_J-c] are printed.
 
 ## Citation
+```text
 @mastersthesis{Tsai2026TBRLAP,
   title   = {A Trigonometric-Basis Regularized Local All-Pass Method with Component-wise Jacobian Constraints for X-ray Image Alignment},
   author  = {Cheng-En Tsai},
   school  = {National Taiwan University},
   year    = {2026}
 }
+```
+
+## Acknowledgements 
+Local All-Pass framework, ANTs / SimpleITK toolkits, NIH Chest X-ray dataset
 
 ## Contact
 If you have any questions, please contact f200154nn6@gmail.com
