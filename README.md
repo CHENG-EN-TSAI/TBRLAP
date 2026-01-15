@@ -12,36 +12,60 @@ This repository provides an implementation of **LAP-based deformable 2D–2D med
 - Quantitative evaluation: SSIM, NMI, Dice, TV, Jacobian determinant, ICE  
 
 ## Repository Structure
+```text
 .
 ├─ main.py
 ├─ lap_proposed.py
 ├─ lap_original.py
 ├─ lap_test.py
-├─ functions.py
-├─ data/
-│  └─ NIH/
-│     └─ NIH_regist_pair.json
-└─ LAP_results/
+└─ functions.py
+```
 
 ## Installation
-Python ≥ 3.9 recommended.
-
-Dependencies:
-numpy, pillow, tqdm, torch, scikit-image
-
-Install:
-pip install numpy pillow tqdm torch scikit-image
-
-Note: ants_affine_registration() requires ANTs / ANTsPy. Please install ANTs accordingly.
+1. Clone the repo
+   ```text
+   git clone https://github.com/
+   ```
+   
+2. Create new conda environment
+   ```text
+   conda create -n oxr python==3.9
+   conda activate lap
+   ```
+   
+3. Install required packages
+   ```text
+   pip install numpy pillow tqdm torch scikit-image
+   ```
+4. Install ANTs / ANTsPy follow https://
 
 ## Data Preparation
---data_paths_json must point to a JSON file containing a list of dictionaries with keys:
-fixed, moving, fixed_seg, moving_seg, fixed_size, moving_size,
-fixed_piel_spacing, moving_piel_spacing.
 
-Images are resized to --img_size (default 256×256), normalized to [0,1].
-Masks are resized with nearest-neighbor and binarized.
-Pixel spacing and size are used to compute spacing ratio.
+`--data_paths_json` must point to a JSON file containing a **list of dictionaries**.
+Each dictionary specifies one registration pair.
+
+**Required fields**
+- `fixed`: path to the fixed image
+- `moving`: path to the moving image
+
+**Optional fields**
+- `moving_seg`: path to the moving image segmentation (binary mask)
+- `fixed_piel_spacing`: pixel spacing of the fixed image `[sx, sy]`
+- `moving_piel_spacing`: pixel spacing of the moving image `[sx, sy]`
+
+### Example JSON format
+
+```json
+[
+  {
+    "fixed": "FIXED_IMAGE_PATH",
+    "fixed_piel_spacing": [sx, sy],
+    "moving": "MOVING_IMAGE_PATH",
+    "moving_seg": "MOVING_SEG_PATH",
+    "moving_piel_spacing": [sx, sy]
+  }
+]
+```
 
 ## Usage
 Run TBR-LAP:
