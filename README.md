@@ -1,5 +1,5 @@
 # TBR-LAP / TBRJ-LAP  
-**Trigonometric-Basis Regularized Local All-Pass Registration for X-ray Images**
+**Trigonometric-Basis Regularized Local All-Pass Registration for 2D Same-modal Images**
 
 This repository provides an implementation of **LAP-based deformable 2D–2D medical image registration**, including **Original LAP**, **TBR-LAP**, and optional **TBRJ-LAP** with Jacobian/area constraints. The code targets **same-modality X-ray registration** and supports forward–backward registration with **inverse consistency error (ICE)** evaluation.
 
