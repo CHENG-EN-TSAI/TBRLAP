@@ -71,7 +71,7 @@ Each dictionary specifies one registration pair.
 ## RUN a Test
 Run original LAP:
 ```bash
-python go.py --data_paths_json test_data/test.json --LAP_type original
+python go.py --data_paths_json test_data/test.json --LAP_type original --sigma original
 ```
 
 Run TBR-LAP:
