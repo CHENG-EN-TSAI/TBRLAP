@@ -75,7 +75,7 @@ Each dictionary specifies one registration pair.
 
 A sample JSON file is provided in `test_data/` for testing purposes.
 
-For **Medalab members**, create a symbolic link to the full ChestX-ray8 dataset as follows. The corresponding JSON file is located in this directory:
+For **Medalab members**, create a symbolic link to the full NIH ChestX-ray8 dataset as follows. The corresponding JSON file is located in this directory:
 ```bash
 ln -s /data2/smarted/TMUH/data data
 ```
