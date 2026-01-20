@@ -22,10 +22,9 @@ This repository provides an implementation of **LAP-based deformable 2D–2D med
 ```
 
 ## Installation
-1. Clone the repo and navigate to the directory
+1. Clone the repo
    ```bash
    git clone https://github.com/CHENG-EN-TSAI/TBRLAP.git
-   cd TBRLAP
    ```
    
 2. Create new conda environment
@@ -37,6 +36,11 @@ This repository provides an implementation of **LAP-based deformable 2D–2D med
 3. Install required packages
    ```bash
    pip install -r requirements.txt
+   ```
+   
+## Navigate to the project directory
+   ```bash
+   cd TBRLAP
    ```
 
 ## Data Preparation
