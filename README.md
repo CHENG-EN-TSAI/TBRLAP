@@ -84,17 +84,17 @@ ln -s /data2/smarted/TMUH/data data
 ## RUN a Test
 Run original LAP:
 ```bash
-python go.py --data_paths_json test_data/test.json --LAP_type original --sigma original
+python go.py --data_paths_json test_data/test.json --LAP_type original --sigma original --result_path LAP_results
 ```
 
 Run TBR-LAP:
 ```bash
-python go.py --data_paths_json test_data/test.json --LAP_type proposed --number_of_F_basis 5 --beta 5 150000
+python go.py --data_paths_json test_data/test.json --LAP_type proposed --number_of_F_basis 5 --beta 5 150000 --result_path TBRLAP_results
 ```
 
 Run TBRJ-LAP:
 ```bash
-python go.py --data_paths_json test_data/test.json --LAP_type proposed --number_of_F_basis 5 --beta 5 150000 --gamma 800
+python go.py --data_paths_json test_data/test.json --LAP_type proposed --number_of_F_basis 5 --beta 5 150000 --gamma 800 --result_path TBRJLAP_results
 ```
 
 ## Arguments
