@@ -22,7 +22,7 @@ This repository provides an implementation of **LAP-based deformable 2D–2D med
 ```
 
 ## Installation
-1. Clone the repo
+1. Clone the repo and navigate to the directory
    ```bash
    git clone https://github.com/CHENG-EN-TSAI/TBRLAP.git
    cd TBRLAP
