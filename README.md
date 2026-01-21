@@ -85,10 +85,10 @@ ln -s /data2/smarted/TMUH/data data
 ### Notes
 
 - For reproducibility, set `reproducible = True` when calling
-  `ants_affine_registration` in `go.py`.
+  `ants_affine_registration` in the `main` function of `go.py`.
 
 - If only forward registration is required (i.e., ICE computation is skipped),
-  set `backward = False` in `go.py`.
+  set `backward = False` in the `main` function of `go.py`.
   
 Run original LAP:
 ```bash
