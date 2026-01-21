@@ -126,7 +126,7 @@ After completion, mean ± std of SSIM, NMI, ICE, TV_mean, TV_p95, DJ_fold%, DJ_p
 ```
 
 ## Acknowledgements 
-Local All-Pass framework, ANTs / SimpleITK toolkits, NIH Chest X-ray dataset
+Local All-Pass framework, ANTs toolkits, NIH Chest X-ray dataset
 
 ## Contact
 If you have any questions, please contact f200154nn6@gmail.com
