@@ -81,17 +81,15 @@ ln -s /data2/smarted/TMUH/data data
 ```
 **Note:** Please contact me if you need to modify anything in this directory.
 
-## Important Notes
-1. Reproducibility \\
-   For reproducible results, set `reproducible = True` when calling
-   `ants_affine_registration` in `go.py`.
-
-2. Forward-only Registration \\
-   If only forward registration is required (i.e., ICE computation is skipped),
-   set `backward = False` in `go.py`.
-
-
 ## RUN a Test
+### Notes
+
+- For reproducibility, set `reproducible = True` when calling
+  `ants_affine_registration` in `go.py`.
+
+- If only forward registration is required (i.e., ICE computation is skipped),
+  set `backward = False` in `go.py`.
+  
 Run original LAP:
 ```bash
 python go.py --data_paths_json test_data/test.json --LAP_type original --sigma original --result_path LAP_results
