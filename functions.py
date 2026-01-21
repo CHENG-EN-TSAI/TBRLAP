@@ -195,7 +195,7 @@ def compute_ICE(u_fwd_fix, u_bwd_mov, spacing_fix=(1.0,1.0), spacing_mov=(1.0,1.
     ice_map = np.sqrt(res_phys_r**2 + res_phys_c**2)
     return float(ice_map[valid].mean())
 
-def ants_affine_registration(fixed, moving, stride=2):
+def ants_affine_registration(fixed, moving, stride=2, reproducible=False):
     """
     Perform affine registration using ANTsPy.
     Args:
@@ -208,7 +208,11 @@ def ants_affine_registration(fixed, moving, stride=2):
     moving_ants = ants.from_numpy(moving)
     
     # Perform affine registration
-    reg = ants.registration(fixed_ants, moving_ants, type_of_transform='Affine')
+    if reproducible:
+        reg = ants.registration(fixed_ants, moving_ants, type_of_transform='Affine', random_seed=42)
+    else:
+        reg = ants.registration(fixed_ants, moving_ants, type_of_transform='Affine')
+               
     transform_list = reg['fwdtransforms']
     
     # Compute deformation field by applying the transform to a grid of points
