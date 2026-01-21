@@ -83,11 +83,11 @@ ln -s /data2/smarted/TMUH/data data
 
 ## Important Notes
 
-# 1. Reproducibility
+### 1. Reproducibility
    For reproducible results, set `reproducible = True` when calling
    `ants_affine_registration` in `go.py`.
 
-# 2. Forward-only Registration
+### 2. Forward-only Registration
    If only forward registration is required (i.e., ICE computation is skipped),
    set `backward = False` in `go.py`.
 
