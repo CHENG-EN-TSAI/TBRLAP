@@ -269,7 +269,9 @@ class LAP():
             
         os.makedirs(path, exist_ok=True)
         
-        # Save GIF animation
+        ######################################
+        #### ---- Save GIF animation ---- ####
+        ######################################
         frames = []
         frames.append(PImage.fromarray(self.im_f*255))
         frames.append(PImage.fromarray(self.im_w*255))
@@ -286,7 +288,9 @@ class LAP():
         
         D_J = ((1+ ux)*(1+vy) - uy*vx)
 
-        # Save images, TV, and absolute error
+        ###############################
+        #### ---- Save images ---- ####
+        ###############################
         images_dict = {"Fixed Image": self.im_f,
                     "Moving Image": self.im_m,
                     "Warped Image": self.im_w
@@ -306,7 +310,11 @@ class LAP():
 
             plt.savefig(os.path.join(path, name), bbox_inches="tight", pad_inches=0)
             plt.close()
-        
+
+
+        ##########################################
+        #### ---- Save deformation field ---- ####
+        ##########################################
         step = 17
         
         u, v = self.deformation_field[0], self.deformation_field[1]
@@ -331,7 +339,11 @@ class LAP():
         
         plt.savefig(os.path.join(path, "Deformation Field"), bbox_inches="tight", pad_inches=0)
         plt.close()
-        
+
+
+        ###############################################
+        #### ---- Save warped image with grid ---- ####
+        ###############################################
         spacing = 32
         
         grid = np.zeros((H, W), dtype=np.float32)
@@ -371,8 +383,9 @@ class LAP():
         fig.savefig(os.path.join(path, "Warped Grid"), bbox_inches="tight", pad_inches=0)
         plt.close()
         
-        # Compute SSIM, NMI, Jacobian metrics
-
+        ############################################
+        #### ---- Compute and save metrics ---- ####
+        ############################################
         if self.spacing_ratio is not None:
             MSE_DJ_c = float(((D_J - self.spacing_ratio)[self.conserve_region==1]**2).mean())
         else:
