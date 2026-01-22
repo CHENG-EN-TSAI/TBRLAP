@@ -576,7 +576,6 @@ class LAP():
         ############################################
         #### ---- Compute and save metrics ---- ####
         ############################################
-
         valid = np.where(apply_field(np.ones_like(self.im_m), self.deformation_field, order=0)==1, True, False)
         _, SSIM_img = ssim(self.im_f, self.im_w, data_range=1.0, full=True)
         SSIM_val = float(np.mean(SSIM_img[valid]))
