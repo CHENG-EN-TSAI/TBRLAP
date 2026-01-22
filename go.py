@@ -214,7 +214,7 @@ def main():
     
     # Create result directory
     if os.path.exists(args.result_path):
-        print(f"result_path --{args.result_path}-- already exists, results may be overwritten")
+        print(f"result_path --{args.result_path}-- already exists, previous results may be overwritten")
     os.makedirs(args.result_path, exist_ok=True)
     
     # Load dataset JSON
