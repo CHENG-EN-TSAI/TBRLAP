@@ -177,6 +177,7 @@ def main():
     parser.add_argument("--LAP_type", default="proposed", choices=["proposed", "original"])
     parser.add_argument("--result_path", default=None)
     parser.add_argument("--device", default="cpu", choices=["cpu", "cuda", "auto"])
+    parser.add_argument("--seed", default=False, type=int)
     parser.add_argument("--sigma", default="proposed", choices=["proposed", "original"])
     parser.add_argument("--r_list", default=[8, 8, 8, 4, 4, 2, 2, 1, 1], type=int, nargs='+')
     
@@ -227,7 +228,7 @@ def main():
         # Load and preprocess images/masks
         im_f, im_m, seg_f, seg_m, spacing_ratio = load_and_resize(data_paths[i], args.img_size)
         
-        initial_field = ants_affine_registration(im_f, im_m, reproducible=False)
+        initial_field = ants_affine_registration(im_f, im_m, args.seed)
         # Forward registration
         reg = LAP(
                 fixed_img=im_f,
@@ -247,7 +248,7 @@ def main():
             if spacing_ratio is not None:
                 spacing_ratio = 1 / spacing_ratio
                 
-            initial_field = ants_affine_registration(im_m, im_f, reproducible=False)
+            initial_field = ants_affine_registration(im_m, im_f, args.seed)
             # Backward registration
             bwd_reg = LAP(
                     fixed_img=im_m,
