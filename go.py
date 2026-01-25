@@ -228,7 +228,7 @@ def main():
         # Load and preprocess images/masks
         im_f, im_m, seg_f, seg_m, spacing_ratio = load_and_resize(data_paths[i], args.img_size)
         
-        initial_field = ants_affine_registration(im_f, im_m, args.seed)
+        initial_field = ants_affine_registration(im_f, im_m, seed=args.seed)
         # Forward registration
         reg = LAP(
                 fixed_img=im_f,
@@ -248,7 +248,7 @@ def main():
             if spacing_ratio is not None:
                 spacing_ratio = 1 / spacing_ratio
                 
-            initial_field = ants_affine_registration(im_m, im_f, args.seed)
+            initial_field = ants_affine_registration(im_m, im_f, seed=args.seed)
             # Backward registration
             bwd_reg = LAP(
                     fixed_img=im_m,
