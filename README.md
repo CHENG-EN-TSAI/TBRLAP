@@ -84,9 +84,6 @@ ln -s /data2/smarted/TMUH/data data
 ## RUN a Test
 ### Notes
 
-- For reproducibility, set `reproducible = True` when calling
-  `ants_affine_registration` in the `main` function of `go.py`.
-
 - If only forward registration is required (i.e., ICE computation is skipped),
   set `backward = False` in the `main` function of `go.py`.
   
@@ -110,8 +107,9 @@ python go.py --data_paths_json test_data/test.json --LAP_type proposed --number_
 --data_paths_json: dataset JSON  
 --img_size: image resolution  
 --LAP_type: proposed | original
---device: cpu | cuda | auto  
---result_path: output directory  
+--seed: int or False
+--device: cpu | cuda | auto
+--result_path: output directory 
 --sigma: Gaussian parameterization  
 --r_list: multi-scale filter radii  
 --number_of_F_basis: truncation parameter n  
