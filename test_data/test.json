@@ -1,0 +1,46 @@
+[
+    {
+        "fixed": "test_data/fixed001.png",
+        "fixed_seg": "test_data/fixed_seg001.png",
+        "fixed_size": [
+            2682,
+            2749
+        ],
+        "fixed_pixel_spacing": [
+            0.143,
+            0.143
+        ],
+        "moving": "test_data/moving001.png",
+        "moving_seg": "test_data/moving_seg001.png",
+         "moving_size": [
+            2894,
+            2729
+        ],
+        "moving_pixel_spacing": [
+            0.143,
+            0.143
+        ]
+    },
+    {
+        "fixed": "test_data/fixed002.png",
+        "fixed_seg": "test_data/fixed_seg002.png",
+        "fixed_size": [
+            2048,
+            2500
+        ],
+        "fixed_pixel_spacing": [
+            0.168,
+            0.168
+        ],
+        "moving": "test_data/moving002.png",
+        "moving_seg": "test_data/moving_seg002.png",
+        "moving_size": [
+            2992,
+            2991
+        ],
+        "moving_pixel_spacing": [
+            0.143,
+            0.143
+        ]
+    }
+]
