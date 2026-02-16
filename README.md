@@ -71,7 +71,7 @@ Each dictionary specifies one registration pair.
     "fixed_pixel_spacing": [px_f, py_f],
     "moving": "MOVING_IMAGE_PATH",
     "moving_seg": "MOVING_SEG_PATH",
-    "fixed_size": [sx_m, sy_m],
+    "moving_size": [sx_m, sy_m],
     "moving_pixel_spacing": [px_m, py_m]
   }
 ]
